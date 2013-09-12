@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    = stylesheet_link_tag "site"
+    = partial "components/typekit"
+
+    %title Mariusz Cieśla - Digital Designer - Kraków, Poland
+
+    %meta{:charset => "utf-8"}
+    %meta{:name => "Description", :content => "Digital designer & front-end developer based in Krakow, Poland."}
+    %meta{:name => "viewport", :content => "width=device-width" }
+
+  %body
+    = yield
+
+    %footer{:role => "footer"}
+      %p
+        Designed &amp; built in Kraków.
+
+        = link_to "See the source.", "http://github.com/mariusz/mariusz.cc"
