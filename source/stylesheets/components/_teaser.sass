@@ -2,26 +2,22 @@ $teaser-text-color: #fff
 $teaser-button-bg: #61BA6C
 
 .teaser
-  background: image-url("face.jpg") -150px center no-repeat
+  background: image-url("face.jpg") -150px top no-repeat
   background-size: auto 100%
   background-attachment: fixed
   color: $teaser-text-color
   text-align: center
   height: 40em
 
-  @media only screen and (min-width: 37.5em)
-    background-position: -150px top
-
   @media only screen and (min-width: 40em)
     height: 40em
-    background-position: top center
+    background-position: -150px top
+    background-size: 150% auto
 
   @media only screen and (min-width: 64em)
     height: 50em
     background-size: 100% auto
-
-  @media only screen and (min-width: 82.5em)
-    background-size: 100% auto
+    background-position: center top
 
   h2
     font-weight: normal

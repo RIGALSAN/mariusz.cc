@@ -3,7 +3,7 @@
 
 To run locally:
 
-- Make sure you have rbenv or RVM.
+- Make sure you have rbenv, RVM or chruby.
 - Install required Ruby version.
 - `gem install bundler`
 - `bundle`
