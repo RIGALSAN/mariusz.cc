@@ -1,10 +1,25 @@
++font-face("trend-sans-one", font-files("TrendSans-One-webfont.woff", woff, "TrendSans-One-webfont.otf", opentype), "TrendSans-One-webfont.eot")
+
 $ratio: 1.618
 $base-em: 1em
+$faricy: "faricy-new-web", sans-serif
+$trend-sans: "trend-sans-one", "faricy-new-web", sans-serif
 
 body
-  font-family: "faricy-new-web", Helvetica, Arial, sans-serif
+  font-family: $faricy
   font-size: 1.0em
   line-height: 1.5
+
+  -webkit-text-rendering: optimizeLegibility
+  -moz-text-rendering: optimizeLegibility
+  -o-text-rendering: optimizeLegibility
+  -ms-text-rendering: optimizeLegibility
+  text-rendering: optimizeLegibility
+
+h1, h2, h3, h4, h5, h6
+  font-family: $trend-sans
+  text-transform: uppercase
+  letter-spacing: -.05em
 
 h1
   font-size: ms(2.5, $base-em, $ratio)

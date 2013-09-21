@@ -7,16 +7,18 @@ $teaser-button-bg: #61BA6C
   background-attachment: fixed
   color: $teaser-text-color
   text-align: center
-  height: 32.5em
+  height: 40em
 
   @media only screen and (min-width: 37.5em)
-    background-position: center center
+    background-position: -150px top
 
   @media only screen and (min-width: 40em)
     height: 40em
+    background-position: top center
 
   @media only screen and (min-width: 64em)
     height: 50em
+    background-size: 100% auto
 
   @media only screen and (min-width: 82.5em)
     background-size: 100% auto
@@ -25,17 +27,21 @@ $teaser-button-bg: #61BA6C
     font-weight: normal
     font-size: ms(1)
     line-height: 1.25
+    font-family: $faricy
+    letter-spacing: 0
+    text-transform: none
 
     @media only scree and (min-width: 40em)
       font-size: ms(1.5)
 
 .teaser-claim
   text-transform: uppercase
-  letter-spacing: .05em
+  letter-spacing: .025em
   text-align: center
   text-shadow: 0 1px 0 $shadow-color
   font-size: ms(1.5)
   margin-top: 1.5em
+  letter-spacing: -.05em
 
   @media only screen and (min-width: 40em)
     margin: 0 auto
@@ -49,13 +55,21 @@ $teaser-button-bg: #61BA6C
   text-shadow: 0 1px 0 $shadow-color
 
   @media only screen and (min-width: 64em)
-    +span-columns(8)
-    +prefix(2)
-    +suffix(2)
+    +span-columns(10)
+    +prefix(1)
+    +suffix(1)
 
 .teaser-button-holder
   padding-top: 2em
   clear: left
+
+  .or
+    display: block
+    padding: 2em 0
+
+    @media only screen and (min-width: 40em)
+      display: inline
+      padding: 0 2em
 
 .teaser-button
   @extend .button
