@@ -5,7 +5,7 @@
 # Susy grids in Compass
 # First: gem install susy
 require 'susy'
-require 'animation'
+require 'animate'
 
 # Change Compass configuration
 # compass_config do |config|
@@ -66,7 +66,7 @@ set :images_dir, 'images'
 
 set :markdown_engine, :redcarpet
 set :markdown,  :fenced_code_blocks => true,
-                :autolink => true, 
+                :autolink => true,
                 :smartypants => true
 
 # Build-specific configuration
@@ -91,5 +91,3 @@ configure :build do
   # Or use a different image path
   # set :http_path, "/Content/images/"
 end
-
-

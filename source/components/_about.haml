@@ -1,16 +1,17 @@
 %a#about
 
-.section.section-about
+.section.section--about
   .wrapper
-    %h2 Complex problems, simple solutions.
+    %h2.wow.fadeInDown Simple solutions to complex problems.
 
-    %p 
-      Hello there. I'm Mariusz and I'm an user experience and user interface 
-      designer based in Poland. I enjoy simplicity to the level where I decided 
-      to make solving problems with design my day job. Currently, I'm consulting
-      for clients big and small, as well as building out and testing my own ideas.
-      
-    %p
-      Got a problem to solve?
-      = link_to "Let's talk.", "/contact.html"
-   
+    %p.wow.fadeInUp
+      Hello there. I'm Mariusz and I'm a user experience and user interface
+      designer based in Berlin. I enjoy simplicity. To the point, actually,
+      that I decided to make providing simple solutions to complex problems
+      my day job.
+
+    %p.pullout.wow.fadeInUp
+      Got a problem that needs solving?
+
+    .button--holder
+      = link_to "Let's talk", "#", :class => "button"

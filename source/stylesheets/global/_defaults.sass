@@ -11,4 +11,14 @@ a
   text-decoration: none
 
 .wrapper
-  +container
+  max-width: 95%
+  margin: 0 auto
+
+  +breakpoint(64em)
+    +container(64em)
+
+.wow
+  visibility: hidden
+  +opacity(0)
+  +animation-fill-mode(forwards)
+  +animation-duration(1s)

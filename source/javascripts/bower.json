@@ -1,0 +1,19 @@
+{
+  "name": "mariusz.cc",
+  "version": "2.0.0",
+  "homepage": "https://github.com/mariusz/mariusz.cc",
+  "authors": [
+    "Mariusz Ciesla <mariusz@dotmariusz.net>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "wow": "~1.0.2"
+  }
+}

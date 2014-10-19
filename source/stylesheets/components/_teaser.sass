@@ -9,15 +9,15 @@ $teaser-button-bg: #61BA6C
   text-align: center
   height: 40em
 
-  @media only screen and (min-width: 37.5em)
+  +breakpoint(37.5em)
     height: 45em
     background-position: -150px top
     background-size: 200% auto
 
-  @media only screen and (min-width: 48em)
+  +breakpoint(48em)
     background-size: 150% auto
 
-  @media only screen and (min-width: 64em)
+  +breakpoint(64em)
     height: 50em
     background-size: 100% auto
     background-position: center top
@@ -29,36 +29,37 @@ $teaser-button-bg: #61BA6C
     font-family: $faricy
     letter-spacing: 0
     text-transform: none
+    margin-top: .25em
 
-    @media only screen and (min-width: 40em)
+    +breakpoint(40em)
       font-size: ms(1.5)
 
-.teaser-claim
+.teaser--claim
   text-transform: uppercase
   letter-spacing: .025em
   text-align: center
   text-shadow: 0 1px 0 $shadow-color
   font-size: ms(1.5)
-  margin-top: 1.5em
+  margin-top: 1em
   letter-spacing: -.05em
 
-  @media only screen and (min-width: 40em)
+  +breakpoint(40em)
     margin: 0 auto
     font-size: ms(2.5)
-    margin-top: 2.5em
+    margin-top: 1.25em
 
-  @media only screen and (min-width: 64em)
-    margin-top: 3.5em
+  +breakpoint(64em)
+    margin-top: 1.5em
 
-.teaser-claim, .teaser h2
+.teaser--claim, .teaser h2
   text-shadow: 0 1px 0 $shadow-color
 
-  @media only screen and (min-width: 64em)
-    +span-columns(10)
-    +prefix(1)
-    +suffix(1)
+  +breakpoint(64em)
+    +span(10 of 12)
+    +prefix(1 of 12)
+    +suffix(1 of 12)
 
-.teaser-button-holder
+.teaser--button-holder
   padding-top: 2em
   clear: left
 
@@ -66,18 +67,42 @@ $teaser-button-bg: #61BA6C
     display: block
     padding: 2em 0
 
-    @media only screen and (min-width: 40em)
+    +breakpoint(40em)
       display: inline
       padding: 0 2em
 
-.teaser-button
+.teaser--button
   @extend .button
 
   color: $teaser-text-color
   background: transparent
-  border: 1px solid $teaser-text-color
-  font-size: 1.25em
+  border: 2px solid $teaser-text-color
+  position: relative
+
+  span
+    +transition(all .1s $easing)
+
+  &:after
+    content: ""
+    position: absolute
+    top: 50%
+    margin-top: -.5em
+    left: 0
+    width: 1em
+    height: 1em
+    background-image: image-url("icons/arrow-right.svg")
+    background-size: 100%
+    +opacity(0)
+    +transition(all .25s $easing)
 
   &:hover
-    background: $teaser-button-bg
-    border-color: $teaser-button-bg
+    background: rgba(0,0,0,.125)
+
+    span
+      +transform(scale3d(0,0,0))
+      +opacity(0)
+
+    &:after
+      left: 50%
+      margin-left: -.5em
+      +opacity(1)
