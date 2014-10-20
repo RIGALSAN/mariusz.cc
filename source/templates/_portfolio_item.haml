@@ -1,0 +1,5 @@
+%script{:id => "portfolio_item", :type => "text/x-handlebars-template"}
+  .portfolio-item
+    %figure.portfolio-item--cover
+      %a{:href => "{{ url }}", :target => "_blank"}
+        %img{:src => "{{ cover }}", :alt => "{{ name }}"}
