@@ -3,7 +3,9 @@
     %h1.logo.wow.fadeInDown
       = link_to "Mariusz Cieśla - User Interface Designer &amp; Developer", "/", :class => "logo-symbol"
 
-    %nav.nav--top.wow.fadeInDown{:role => "navigation", "data-wow-delay" => ".25s"}
+    = link_to "MENU", "#nav", :class => "nav--mobile", :id => "nav_button"
+
+    %nav#nav.nav--top.wow.fadeInDown{:role => "navigation", "data-wow-delay" => ".25s"}
       %ul
         %li= link_to "About", "#"
         %li= link_to "Work", "#"

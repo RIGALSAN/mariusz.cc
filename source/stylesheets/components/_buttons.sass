@@ -1,8 +1,10 @@
 @import compass/css3/border-radius
 
-$button-text-color: #3B2041
+$button-text-color: #8d008b
 $button-bg: transparent
-$button-border-color: #3B2041
+$button-border-color: #8d008b
+$button-bg__hover: #8d008b
+$button-text-color__hover: white
 
 @mixin button($bg-color: $button-bg, $text-color: $button-text-color, $border-color: $button-border-color)
   padding: 1.5em 3em
@@ -17,7 +19,11 @@ $button-border-color: #3B2041
   +transition(color, border-color, background-color .25s $easing)
 
   &:hover
-    background: lighten($bg-color, 5%)
+    background: $button-bg__hover
+    color: $button-text-color__hover
+
+  &:after
+    background: transparent
 
 
 .button

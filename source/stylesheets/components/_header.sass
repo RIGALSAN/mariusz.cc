@@ -1,5 +1,8 @@
 .header-wrapper
-  padding-top: 2em
+  padding-top: 1em
+
+  +breakpoint(30em)
+    padding-top: 2em
 
 .logo
   width: 48px
@@ -8,9 +11,16 @@
   font-size: 1em
   padding-top: 1em
 
+  +breakpoint(30em)
+    margin: 0 auto
+    float: none
+
+  &:after
+    display: none
+
 .logo-symbol
   display: block
   width: 48px
-  height: 48px
+  height: 46px
   text-indent: -999em
-  +image-2x("logo.png", "logo@2x.png", 48px, 48px)
+  +image-2x("logo.png", "logo@2x.png", 48px 48px)

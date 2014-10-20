@@ -4,7 +4,7 @@
     = stylesheet_link_tag "site"
     = partial "components/typekit"
 
-    %title Mariusz Cieśla - Digital Designer - Kraków, Poland
+    %title Mariusz Cieśla — UX & UI Designer from Berlin
 
     %meta{:charset => "utf-8"}
     %meta{:name => "Description", :content => "Digital designer & front-end developer based in Krakow, Poland."}
@@ -12,11 +12,5 @@
 
   %body
     = yield
-
-    %footer{:role => "footer"}
-      %p
-        Designed &amp; built in Kraków.
-
-        = link_to "See the source.", "http://github.com/mariusz/mariusz.cc"
-
+    = partial "components/footer"
     = javascript_include_tag "site"

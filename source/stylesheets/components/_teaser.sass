@@ -7,10 +7,13 @@ $teaser-button-bg: #61BA6C
   background-attachment: fixed
   color: $teaser-text-color
   text-align: center
-  height: 40em
+  min-height: 40em
+  padding-bottom: 2em
+  position: relative
 
   +breakpoint(37.5em)
-    height: 45em
+    padding-bottom: 0
+    min-height: 45em
     background-position: -150px top
     background-size: 200% auto
 
@@ -18,7 +21,7 @@ $teaser-button-bg: #61BA6C
     background-size: 150% auto
 
   +breakpoint(64em)
-    height: 50em
+    min-height: 50em
     background-size: 100% auto
     background-position: center top
 
@@ -33,6 +36,19 @@ $teaser-button-bg: #61BA6C
 
     +breakpoint(40em)
       font-size: ms(1.5)
+
+.teaser--overlay
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  bottom: 0
+  right: 0
+  +animation-name(colorSlide)
+  +animation-duration(10s)
+  +animation-fill-mode(forwards)
+  +animation-iteration-count(infinite)
+  //background-color: hsla(316, 100, 50, .15)
 
 .teaser--claim
   text-transform: uppercase
@@ -96,7 +112,7 @@ $teaser-button-bg: #61BA6C
     +transition(all .25s $easing)
 
   &:hover
-    background: rgba(0,0,0,.125)
+    background: transparent
 
     span
       +transform(scale3d(0,0,0))
