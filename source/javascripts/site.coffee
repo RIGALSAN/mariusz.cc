@@ -1,6 +1,7 @@
 #= require bower_components/wow/dist/wow.min
 #= require bower_components/handlebars/handlebars.min
-#= require vendor/raf-shim.js
+#= require vendor/raf-shim
+#= require vendor/keysort
 #= require_tree ./components
 
 document.addEventListener 'DOMContentLoaded', ->
@@ -8,6 +9,7 @@ document.addEventListener 'DOMContentLoaded', ->
   behanceUserId = 'mariuszciesla'
   dribbbleUserId = 'mariusz'
   work = []
+  workHtml = ""
 
   new WOW().init()
 
