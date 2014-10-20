@@ -1,4 +1,5 @@
-#= require bower_components/wow/dist/wow.min.js
+#= require bower_components/wow/dist/wow.min
+#= require bower_components/handlebars/handlebars.min
 #= require vendor/raf-shim.js
 #= require_tree ./components
 
@@ -17,4 +18,12 @@ document.addEventListener 'DOMContentLoaded', ->
   elOverlay = document.getElementById 'teaser_overlay'
   slider = new ColorSlider(elOverlay, 316, 100, 35, 5)
 
-  behance = new BehanceLoader(behanceAPIKey, behanceUserId)
+  behance = new BehanceLoader behanceAPIKey, behanceUserId
+  behance.getProjects (beProjects) ->
+    workContainer = document.getElementById("work_container")
+    itemSource = document.getElementById("portfolio_item").innerHTML
+    itemTemplate = Handlebars.compile(itemSource)
+
+    for p in beProjects
+      html = itemTemplate(p)
+      workContainer.innerHTML += html

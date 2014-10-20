@@ -1,14 +1,12 @@
 #= require ../vendor/jsonp.min
 
 class @JSONLoader
-  constructor: (@url, @apiKey) ->
+  constructor: (@url, @apiKey, callback) ->
     @request = JSONP
       url: @url
       data:
         api_key: @apiKey
       success: (data) ->
-        @data = data
+        callback(data)
       error: (e) ->
-
-  get: ->
-    @data
+        throw "Error: #{e}"

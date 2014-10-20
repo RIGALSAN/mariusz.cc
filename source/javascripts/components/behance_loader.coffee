@@ -2,17 +2,20 @@
 
 class @BehanceLoader
   constructor: (@apiKey, @userId) ->
-    @projects = {}
-    @wips = {}
     @projectsUrl = "http://www.behance.net/v2/users/#{@userId}/projects"
     @wipsUrl = "http://www.behance.net/v2/users/#{@userId}/wips"
 
-  getData: =>
-    @projects = new JSONLoader(@projectsUrl, @apiKey).get()
-    @wips = new JSONLoader(@wipsUrl, @apiKey).get()
+  getProjects: (callback) =>
+    new JSONLoader @projectsUrl, @apiKey, (data) ->
+      _projects = data.projects
+      _fmtData = []
 
-  getProjects: =>
-    @projects
+      for p in _projects
+        _project = {}
+        _project.timestamp = p.published_on
+        _project.name = p.name
+        _project.cover = p.covers['404']
+        _project.url = p.url
+        _fmtData.push(_project)
 
-  getWIPs: =>
-    @wips
+      callback(_fmtData)
