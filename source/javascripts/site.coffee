@@ -6,6 +6,8 @@
 document.addEventListener 'DOMContentLoaded', ->
   behanceAPIKey = 'vaD6q1uzX4vL5ILGaxIBpBWw5FPdLWQJ'
   behanceUserId = 'mariuszciesla'
+  dribbbleUserId = 'mariusz'
+  work = []
 
   new WOW().init()
 
@@ -18,13 +20,21 @@ document.addEventListener 'DOMContentLoaded', ->
   elOverlay = document.getElementById 'teaser_overlay'
   slider = new ColorSlider(elOverlay, 316, 100, 35, 5)
 
+  # Handlebars stuff
+  workContainer = document.getElementById("work_container")
+  itemSource = document.getElementById("portfolio_item").innerHTML
+  itemTemplate = Handlebars.compile(itemSource)
+
+  # Pull Behance
   behance = new BehanceLoader behanceAPIKey, behanceUserId
   behance.getProjects
     success: (projects) ->
-      workContainer = document.getElementById("work_container")
-      itemSource = document.getElementById("portfolio_item").innerHTML
-      itemTemplate = Handlebars.compile(itemSource)
+      work = work.concat(projects)
 
-      for p in projects
-        html = itemTemplate(p)
-        workContainer.innerHTML += html
+  # Pull Dribbble
+  dribbble = new DribbbleLoader dribbbleUserId, 1, 12
+  dribbble.getShots
+    success: (shots) ->
+      work = work.concat(shots)
+
+      console.log(work)

@@ -1,20 +1,25 @@
-#= require components/json_loader
+#= require components/ajax
+#= require ../bower_components/moment/moment
 
 class @DribbbleLoader
-  constructor: (@apiKey, @userId) ->
-    @shotsUrl = "http://api.dribbble.com/players#{@userId}/shots"
+  constructor: (@userId, @pages = 1, @per_page = 10) ->
+    @shotsUrl = "http://api.dribbble.com/players/#{@userId}/shots"
 
-  getProjects: (callback) =>
-    new JSONLoader @shortsUrl, @apiKey, (data) ->
-      _projects = data.projects
-      _fmtData = []
+  getShots: (args) =>
+    new ajax @shotsUrl,
+      api_key: @apiKey,
+      pages: @pages,
+      per_page: @per_page,
+      success: (data) ->
+        _shots = data.shots
+        _fmtData = []
 
-      for p in _projects
-        _project = {}
-        _project.timestamp = p.published_on
-        _project.name = p.name
-        _project.cover = p.covers['404']
-        _project.url = p.url
-        _fmtData.push(_project)
+        for s in _shots
+          _shot = {}
+          _shot.name = s.title
+          _shot.url = s.url
+          _shot.image = s.image_400_url
+          _shot.created_at = s.created_at
+          _fmtData.push(_shot)
 
-      callback(_fmtData)
+        args['success'](_fmtData)

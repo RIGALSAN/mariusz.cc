@@ -1,6 +1,6 @@
 #= require ../vendor/jsonp.min
 
-class @JSONLoader
+class @ajax
   constructor: (@url, args) ->
     @request = JSONP
       url: @url
