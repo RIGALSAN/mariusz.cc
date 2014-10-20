@@ -4,15 +4,15 @@ class @BehanceLoader
   constructor: (@apiKey, @userId) ->
     @projects = {}
     @wips = {}
-    @projectsUrl = 'http://www.behance.net/v2/users/' + @userId + '/projects.json?api_key=' + @apiKey
-    @wipsUrl = 'http://www.behance.net/v2/users/' + @userId + '/wips.json?api_key=' + @apiKey
-    @getProjects()
-    @getWips()
+    @projectsUrl = "http://www.behance.net/v2/users/#{@userId}/projects"
+    @wipsUrl = "http://www.behance.net/v2/users/#{@userId}/wips"
+
+  getData: =>
+    @projects = new JSONLoader(@projectsUrl, @apiKey).get()
+    @wips = new JSONLoader(@wipsUrl, @apiKey).get()
 
   getProjects: =>
-    loader = new JSONLoader(@projectsUrl)
-    @projects = loader.get()
+    @projects
 
-  getWips: =>
-    loader = new JSONLoader(@wipsUrl)
-    @wips = loader.get()
+  getWIPs: =>
+    @wips
