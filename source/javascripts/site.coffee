@@ -29,12 +29,10 @@ document.addEventListener 'DOMContentLoaded', ->
   behance = new BehanceLoader behanceAPIKey, behanceUserId
   behance.getProjects
     success: (projects) ->
-      work = work.concat(projects)
+      console.log(projects)
 
   # Pull Dribbble
   dribbble = new DribbbleLoader dribbbleUserId, 1, 12
   dribbble.getShots
     success: (shots) ->
-      work = work.concat(shots)
-
-      console.log(work)
+      console.log(shots)

@@ -15,11 +15,12 @@ class @DribbbleLoader
         _fmtData = []
 
         for s in _shots
+          _createdAt = new Date(s.created_at).toISOString()
           _shot = {}
           _shot.name = s.title
           _shot.url = s.url
           _shot.image = s.image_400_url
-          _shot.created_at = s.created_at
+          _shot.created_at = _createdAt
           _fmtData.push(_shot)
 
         args['success'](_fmtData)
