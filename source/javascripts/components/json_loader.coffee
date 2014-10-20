@@ -1,12 +1,12 @@
 #= require ../vendor/jsonp.min
 
 class @JSONLoader
-  constructor: (@url, @apiKey, callback) ->
+  constructor: (@url, args) ->
     @request = JSONP
       url: @url
-      data:
-        api_key: @apiKey
+      data: args || {}
       success: (data) ->
-        callback(data)
+        throw 'Error: data is undefined' if typeof data == 'undefined'
+        args['success'](data)
       error: (e) ->
-        throw "Error: #{e}"
+        throw e

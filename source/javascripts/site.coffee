@@ -19,11 +19,12 @@ document.addEventListener 'DOMContentLoaded', ->
   slider = new ColorSlider(elOverlay, 316, 100, 35, 5)
 
   behance = new BehanceLoader behanceAPIKey, behanceUserId
-  behance.getProjects (beProjects) ->
-    workContainer = document.getElementById("work_container")
-    itemSource = document.getElementById("portfolio_item").innerHTML
-    itemTemplate = Handlebars.compile(itemSource)
+  behance.getProjects
+    success: (projects) ->
+      workContainer = document.getElementById("work_container")
+      itemSource = document.getElementById("portfolio_item").innerHTML
+      itemTemplate = Handlebars.compile(itemSource)
 
-    for p in beProjects
-      html = itemTemplate(p)
-      workContainer.innerHTML += html
+      for p in projects
+        html = itemTemplate(p)
+        workContainer.innerHTML += html
