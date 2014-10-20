@@ -18,4 +18,3 @@ document.addEventListener 'DOMContentLoaded', ->
   slider = new ColorSlider(elOverlay, 316, 100, 35, 5)
 
   behance = new BehanceLoader(behanceAPIKey, behanceUserId)
-  behance.projects
