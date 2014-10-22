@@ -5,10 +5,14 @@ class @BehanceLoader
     @projectsUrl = "http://www.behance.net/v2/users/#{@userId}/projects"
     @wipsUrl = "http://www.behance.net/v2/users/#{@userId}/wips"
 
-  getProjects: (args) =>
-    new ajax @projectsUrl,
-      api_key: @apiKey,
-      success: (data) ->
+  getProjects: =>
+    new Promise (resolve, reject) =>
+      request = new ajax
+        url: @projectsUrl,
+        args:
+          api_key: @apiKey
+
+      request.get().then (data) ->
         _projects = data.projects
         _fmtData = []
 
@@ -20,5 +24,6 @@ class @BehanceLoader
           _project.image = p.covers['404']
           _project.url = p.url
           _fmtData.push(_project)
-
-        args['success'](_fmtData)
+        resolve(_fmtData)
+      , (error) ->
+        reject(error)

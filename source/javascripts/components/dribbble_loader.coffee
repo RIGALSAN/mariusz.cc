@@ -5,12 +5,16 @@ class @DribbbleLoader
   constructor: (@userId, @pages = 1, @per_page = 10) ->
     @shotsUrl = "http://api.dribbble.com/players/#{@userId}/shots"
 
-  getShots: (args) =>
-    new ajax @shotsUrl,
-      api_key: @apiKey,
-      pages: @pages,
-      per_page: @per_page,
-      success: (data) ->
+  getShots: =>
+    new Promise (resolve, reject) =>
+      request = new ajax
+        url: @shotsUrl,
+        args:
+          api_key: @apiKey,
+          pages: @pages,
+          per_page: @per_page
+
+      request.get().then (data) ->
         _shots = data.shots
         _fmtData = []
 
@@ -23,4 +27,7 @@ class @DribbbleLoader
           _shot.created_at = _createdAt
           _fmtData.push(_shot)
 
-        args['success'](_fmtData)
+        resolve(_fmtData)
+      , (error) ->
+        console.log("Error: ", error)
+        reject(error)

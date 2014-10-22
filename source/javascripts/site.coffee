@@ -27,14 +27,10 @@ document.addEventListener 'DOMContentLoaded', ->
   itemSource = document.getElementById("portfolio_item").innerHTML
   itemTemplate = Handlebars.compile(itemSource)
 
-  # Pull Behance
+  # Pull work data
   behance = new BehanceLoader behanceAPIKey, behanceUserId
-  behance.getProjects
-    success: (projects) ->
-      console.log(projects)
-
-  # Pull Dribbble
   dribbble = new DribbbleLoader dribbbleUserId, 1, 12
-  dribbble.getShots
-    success: (shots) ->
-      console.log(shots)
+
+  Promise.all([behance.getProjects(), dribbble.getShots()]).then (response) ->
+    console.log("Promises resolved!")
+    console.log(response)
