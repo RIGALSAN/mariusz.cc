@@ -1,5 +1,5 @@
 #= require components/ajax
-#= require ../bower_components/moment/moment
+#= require moment/moment
 
 class @DribbbleLoader
   constructor: (@userId, @pages = 1, @per_page = 10) ->
