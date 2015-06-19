@@ -1,41 +1,42 @@
 $teaser-text-color: #fff
 $teaser-button-bg: #61BA6C
+$teaser-height-small: 40em
 $teaser-height-medium: 45em
 $teaser-height-large: 50em
 $teaser-claim-letter-spacing: .025em
 
 .teaser
-  background-size: auto 100%
-  background-attachment: fixed
+  +fixed-bg("face.jpg")
   color: $teaser-text-color
   text-align: center
-  min-height: 40em
+  min-height: $teaser-height-small
   padding-bottom: 2em
   position: relative
 
   &::before
+    +animation-name(fadeIn)
+    +animation-duration(3s)
+    +animation-fill-mode(forwards)
+    +animation-iteration-count(1)
+    background-position: -150px top
+    background-repeat: no-repeat
     background: image-url("face.jpg") -150px top no-repeat
-    position: fixed
-    top: 0
-    left: 0
-    right: 0
-    bottom: 0
-    width: 100%
-    height: 100%
-    content: ""
+    background-size: auto 100%
 
     +breakpoint($bp-medium)
-      min-height: $teaser-height-medium
+      background-position: -150px top
+      background-size: 200% auto
+
+    +breakpoint($bp-large)
+      background-size: 100% auto
+      background-position: center top
 
   +breakpoint($bp-medium)
     padding-bottom: 0
-    background-position: -150px top
-    background-size: 200% auto
+    min-height: $teaser-height-medium
 
   +breakpoint($bp-large)
     min-height: $teaser-height-large
-    background-size: 100% auto
-    background-position: center top
 
   h2
     font-weight: normal
@@ -49,83 +50,83 @@ $teaser-claim-letter-spacing: .025em
     +breakpoint(40em)
       font-size: ms(1.5)
 
-.teaser--overlay
-  +absolute(top 0 left 0 bottom 0 right 0)
-  +animation-name(colorSlide)
-  +animation-duration(10s)
-  +animation-fill-mode(forwards)
-  +animation-iteration-count(infinite)
-  width: 100%
-  //background-color: hsla(316, 100, 50, .15)
+  &__overlay
+    +absolute(top 0 left 0 bottom 0 right 0)
+    +animation-name(colorSlide)
+    +animation-duration(10s)
+    +animation-fill-mode(forwards)
+    +animation-iteration-count(infinite)
+    width: 100%
+    //background-color: hsla(316, 100, 50, .15)
 
-.teaser--claim
-  text-transform: uppercase
-  letter-spacing: $teaser-claim-letter-spacing
-  text-align: center
-  text-shadow: 0 1px 0 $shadow-color
-  font-size: ms(1.5)
-  margin-top: 1em
-  letter-spacing: -.05em
+  &__claim
+    text-transform: uppercase
+    letter-spacing: $teaser-claim-letter-spacing
+    text-align: center
+    text-shadow: 0 1px 0 $shadow-color
+    font-size: ms(1.5)
+    margin-top: 1em
+    letter-spacing: -.05em
 
-  +breakpoint($bp-medium)
-    margin: 0 auto
-    font-size: ms(2.5)
-    margin-top: 1.25em
+    +breakpoint($bp-medium)
+      margin: 0 auto
+      font-size: ms(2.5)
+      margin-top: 1.25em
 
-  +breakpoint($bp-large)
-    margin-top: 1.5em
+    +breakpoint($bp-large)
+      margin-top: 1.5em
 
-.teaser--claim, .teaser h2
-  text-shadow: 0 1px 0 $shadow-color
+  &__claim, & h2
+    text-shadow: 0 1px 0 $shadow-color
 
-  +breakpoint($bp-large)
-    +span(10 of 12)
-    +pad(1 of 12)
+    +breakpoint($bp-large)
+      +span(10 of 12)
+      +pad(1 of 12)
 
-.teaser--button-holder
-  padding-top: 2em
-  clear: left
+  &__buttons
+    padding: 4em 0
+    clear: left
 
-  .or
-    display: block
-    padding: 2em 0
+    .or
+      display: block
+      padding: 2em 0
 
-    +breakpoint(40em)
-      display: inline
-      padding: 0 2em
+      +breakpoint($bp-medium)
+        display: inline
+        padding: 2em
 
-.teaser--button
-  @extend .button
+  &__button
+    @extend .button
 
-  color: $teaser-text-color
-  background: transparent
-  border: 2px solid $teaser-text-color
-  position: relative
-
-  span
-    +transition(all .1s $easing)
-
-  &:after
-    content: ""
-    position: absolute
-    top: 50%
-    margin-top: -.5em
-    left: 0
-    width: 1em
-    height: 1em
-    background-image: image-url("icons/arrow-right.svg")
-    background-size: 100%
-    +opacity(0)
-    +transition(all .25s $easing)
-
-  &:hover
+    color: $teaser-text-color
     background: transparent
+    border: 2px solid $teaser-text-color
+    position: relative
 
     span
-      +transform(scale3d(0,0,0))
-      +opacity(0)
+      +transition(all .1s $easing)
 
     &:after
-      left: 50%
-      margin-left: -.5em
-      +opacity(1)
+      content: ""
+      position: absolute
+      top: 50%
+      margin-top: -.5em
+      left: 0
+      width: 1em
+      height: 1em
+      background-image: image-url("icons/arrow-right.svg")
+      background-size: 100%
+      +opacity(0)
+      +transition(all .25s $easing)
+
+    &:hover
+      background: transparent
+
+      span
+        +transform(scale3d(0,0,0))
+        +opacity(0)
+
+      &:after
+        left: 50%
+        margin-left: -.5em
+        +opacity(1)

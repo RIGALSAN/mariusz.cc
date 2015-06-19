@@ -5,11 +5,10 @@ $link-spacing: .125em
 $bp-medium: 37.5em
 $bp-large: 60em
 $layout-small: 95%
-$layout-medium: 32em
+$layout-medium: $layout-small
 $layout-large: 60em
 
 html, body
-  background: #f9f9f9
   color: #252525
   height: 100%
 
@@ -54,3 +53,6 @@ a
   +animation-fill-mode(forwards)
   +animation-duration(1s)
   visibility: hidden
+
+.content
+  background: $bg-color

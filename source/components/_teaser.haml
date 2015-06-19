@@ -1,20 +1,20 @@
 #teaser.teaser
-  #teaser_overlay.teaser--overlay
+  #teaser_overlay.teaser__overlay
   = partial "components/header"
 
-  .wrapper
-    %h1.teaser--claim.wow.fadeInUp
+  .wrapper.wow.fadeInUp
+    %h1.teaser__claim
       So much more than pretty pictures.
 
-    %h2.wow.fadeInUp{"data-wow-delay" => "0.5s"}
+    %h2
       Hello, my name is Mariusz and I'm passionate about designing & building digital products.
 
-    %p.teaser--button-holder
-      = link_to "#", :class => "wow fadeInDown teaser--button", "data-wow-delay" => "1s" do
+    %p.teaser__buttons
+      = link_to "#", :class => "teaser__button" do
         %span Find out more
 
-      %span.or.wow.fadeInDown{"data-wow-delay" => "1.5s"}
+      %span.or
         or
 
-      = link_to "#", :class => "wow fadeInDown teaser--button", "data-wow-delay" => "2s" do
+      = link_to "#", :class => "teaser__button" do
         %span Work with me
