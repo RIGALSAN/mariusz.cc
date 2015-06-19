@@ -4,14 +4,15 @@
   .wrapper
     %h2.wow.fadeInDown Simple solutions to complex problems.
 
-    %p.wow.fadeInUp
-      Hello there. I'm Mariusz and I'm a user experience and user interface
-      designer based in Berlin. I enjoy simplicity. To the point, actually,
-      that I decided to make providing simple solutions to complex problems
-      my day job.
+    .wow.fadeInUp
+      %p
+        Hello there. I'm Mariusz and I'm a user experience and user interface
+        designer based in Berlin. I enjoy simplicity. To the point, actually,
+        that I decided to make providing simple solutions to complex problems
+        my day job.
 
-    %p.pullout.wow.fadeInUp
-      Got a problem that needs solving?
+      %p
+        Got a problem that needs solving?
 
-    .button--holder.wow.fadeInUp{"data-wow-delay" => ".5s"}
+    .buttons.wow.fadeInDown{"data-wow-delay" => ".5s"}
       = link_to "Let's talk", "#", :class => "button"
