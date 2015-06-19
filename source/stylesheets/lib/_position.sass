@@ -1,0 +1,15 @@
+=_position($position, $args)
+  @each $dir in top, left, bottom, right
+    $i: index($args, $dir)
+    @if $i
+      #{$dir}: nth($args, $i + 1)
+  position: $position
+
+=absolute($args)
+  +_position(absolute, $args)
+
+=relative($args)
+  +_position(relative, $args)
+
+=fixed($args)
+  +_position(fixed, $args)

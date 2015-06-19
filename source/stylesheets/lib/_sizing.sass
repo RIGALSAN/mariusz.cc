@@ -1,0 +1,7 @@
+=sizing($args)
+  @if length($args) == 2
+    width: nth($args, 1)
+    height: nth($args, 2)
+  @else
+    width: $args
+    height: $args

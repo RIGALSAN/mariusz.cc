@@ -4,11 +4,18 @@ $ratio: 1.618
 $base-em: 1em
 $faricy: "faricy-new-web", sans-serif
 $trend-sans: "trend-sans-one", "faricy-new-web", sans-serif
+$letter-spacing--header: -.05em
+$line-height: 1.6
+$line-height--header: 1.1
 
-body
+$fs-small: 100%
+$fs-medium: 112.5%
+$fs-large: 120%
+
+html
   font-family: $faricy
-  font-size: 1.0em
-  line-height: 1.5
+  font-size: $fs-small
+  line-height: $line-height
 
   -webkit-text-rendering: optimizeLegibility
   -moz-text-rendering: optimizeLegibility
@@ -16,14 +23,20 @@ body
   -ms-text-rendering: optimizeLegibility
   text-rendering: optimizeLegibility
 
+  +breakpoint($bp-medium)
+    font-size: $fs-medium
+
+  +breakpoint($bp-large)
+    font-size: $fs-large
+
 h1, h2, h3, h4, h5, h6
   font-family: $trend-sans
   text-transform: uppercase
-  letter-spacing: -.05em
+  letter-spacing: $letter-spacing--header
 
 h1
   font-size: ms(2.5, $base-em, $ratio)
-  line-height: 1.1
+  line-height: $line-height--header
 
 h2
   font-size: ms(1.5, $base-em, $ratio)
