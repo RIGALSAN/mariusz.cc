@@ -33,4 +33,5 @@ document.addEventListener 'DOMContentLoaded', ->
 
   Promise.all([behance.getProjects(), dribbble.getShots()]).then (response) ->
     console.log("Promises resolved!")
-    console.log(response)
+    console.log(response[0])
+    console.log(response[1])

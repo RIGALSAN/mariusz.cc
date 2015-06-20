@@ -17,7 +17,7 @@ class @BehanceLoader
         _fmtData = []
 
         for p in _projects
-          _createdAt = new Date(p.published_on*1000).toISOString()
+          _createdAt = new Date(p.published_on * 1000).toISOString()
           _project = {}
           _project.created_at = _createdAt
           _project.name = p.name

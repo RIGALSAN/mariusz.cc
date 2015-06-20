@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "wow": "~1.0.2",
-    "moment": "~2.8.3"
+    "moment": "~2.8.3",
+    "font-awesome": "~4.3.0"
   }
 }
